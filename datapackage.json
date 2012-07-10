@@ -1,0 +1,45 @@
+{
+  "author": "Robert J. Shiller", 
+  "author_email": "", 
+  "extras": {
+    "temporal": "start=1871-01-01;"
+  },
+  "id": "", 
+  "license_id": "odc-pddl", 
+  "maintainer": "Rufus Pollock", 
+  "maintainer_email": "rufus.pollock@okfn.org", 
+  "name": "standard-and-poors-500-shiller", 
+  "notes": "", 
+  "relationships": "", 
+  "resources": [
+    {
+      "url": "http://webstore.thedatahub.org/rufuspollock/standard-and-poors-500-shiller/data.csv",
+      "name": "standard-and-poors-500-shiller.webstore.csv",
+      "webstore_url": "http://webstore.thedatahub.org/rufuspollock/standard-and-poors-500-shiller/data",
+      "resource_type": "file",
+      "format": "csv",
+      "description": "Webstore version of file (cleaned up and normalized)",
+      "mimetype": "text/csv"
+    },
+    {
+      "url": "http://www.econ.yale.edu/~shiller/data/ie_data.xls",
+      "name": "irrational_exuberance_data.xls",
+      "resource_type": "file",
+      "format": "xls",
+      "mimetype": "application/vnd.ms-excel",
+      "description": "Source excel file on Robert Shiller's website (updated monthly)",
+      "size": 829000
+    },
+    {
+      "url": "https://github.com/rgrp/dpkg-standard-and-poors-500-shiller",
+      "name": "git-repo",
+      "resource_type": "code",
+      "format": "git",
+      "description": "Source repo with relevant scripts."
+    }
+  ], 
+  "tags": ["economics", "prices", "stocks", "dividend", "earnings", "shiller", "cpi", "stock-market", "country.us"], 
+  "title": "Standard and Poor's (S&P) 500 Monthly Market Data including Price, Dividend, Earnings and P/E Ratio", 
+  "url": "http://www.econ.yale.edu/~shiller/data.htm", 
+  "version": ""
+}
