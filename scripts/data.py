@@ -8,7 +8,7 @@ out_filepath = 'data/data.csv'
 
 class Extractor(object):
     def execute(self):
-        fp = cache.retrieve(url)
+        fp = cache.retrieve(url, overwrite=True)
         reader = datautil.tabular.XlsReader(fp)
         # print reader.info()
         tabdata = reader.read()
