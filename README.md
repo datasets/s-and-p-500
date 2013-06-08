@@ -1,13 +1,20 @@
-Monthly S&P 500 stock market data including price, dividend, earnings and p/e ratio as collected and prepared by the Economist Robert Shiller and made available on his website.
+S&P 500 index data including level, dividend, earnings and P/E ratio on a
+monthly basis since 1870. The S&P 500 (Standard and Poor's 500) is a
+free-float, capitalization-weighted index of the top 500 publicly listed stocks
+in the US (top 500 by market cap).
 
-### Data
+## Data
 
-Data notes:
+The data provided here is a tidied and CSV'd version of that collected and
+prepared by the Economist Robert Shiller and made [available on his
+website][shiller].
 
-* Price = S&P Composite Price
-* P/E10 = Cyclically Adjusted Price Earnings Ratio P/E10 or CAPE
+[shiller]: http://www.econ.yale.edu/~shiller/data.htm
 
-Details of the data construction as described on Shiller's website (and slightly reformatted):
+### Source Data Construction
+
+Details of the data construction as described on Shiller's website (and
+slightly reformatted):
 
 > Stock market data used in my book, Irrational Exuberance [Princeton University Press 2000, Broadway Books 2001, 2nd ed., 2005] are available for download, Excel file (xls). This data set consists of monthly stock price, dividends, and earnings data and the consumer price index (to allow conversion to real values), all starting January 1871.
 > 
@@ -17,9 +24,18 @@ Details of the data construction as described on Shiller's website (and slightly
 >
 > For the Plots, I have multiplied the inflation-corrected series by a constant so that their value in january 2000 equals their nominal value, i.e., so that all prices are effectively in January 2000 dollars.
 
-### License
+### Preparation
 
-No exact statement on license of original data but given size and factual nature believe one can assume these are public domain (and I, the maintainer, explicitly license under the ODC Public Domain Dedication and License (PDDL)).
+Run:
 
-That said, it would be natural to explicitly credit Robert Shiller for preparing this dataset and kindly making it publicly available.
+    python scripts/data.py
+
+## License
+
+No exact statement on license of original data but given size and factual
+nature believe one can assume these are public domain (and I, the maintainer,
+explicitly license under the ODC Public Domain Dedication and License (PDDL)).
+
+That said, it would be natural to credit Robert Shiller for preparing this
+dataset and kindly making it publicly available.
 

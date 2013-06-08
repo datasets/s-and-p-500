@@ -69,5 +69,16 @@
         ]
       }
     }
+  ],
+  "views": [
+    {
+      "id": "graph",
+      "type": "Graph",
+      "state": {
+        "graphType": "lines",
+        "group": "Date",
+        "series": [ "SP500" ]
+      }
+    }
   ]
 }
