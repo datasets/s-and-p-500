@@ -26,6 +26,10 @@ slightly reformatted):
 
 ### Preparation
 
+Install requirements in form of datautil library:
+
+    pip install datautil
+
 Run:
 
     python scripts/data.py
