@@ -28,7 +28,7 @@ slightly reformatted):
 
 Install requirements in form of datautil library:
 
-    pip install datautil
+    pip install -r scripts/requirements.txt
 
 Run:
 
