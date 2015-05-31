@@ -1,28 +1,25 @@
-url = 'http://www.econ.yale.edu/~shiller/data/ie_data.xls'
-cachepath = 'cache/shiller.xls'
-
+import csv
+import datetime
 import urllib
-import datautil
-import datautil.tabular
-out_filepath = 'data/data.csv'
+import os
 
-def execute():
-    fp = retrieve()
-    out = extract(fp)
-    save(out, out_filepath)
+from dataconverters import xls
+
+url = 'http://www.econ.yale.edu/~shiller/data/ie_data.xls'
+cachepath = 'archive/shiller.xls'
+
+out_filepath = 'data/data.csv'
 
 def retrieve():
     urllib.urlretrieve(url, cachepath)
-    return cachepath
 
-def extract(fp):
-    reader = datautil.tabular.XlsReader(fp)
-    # print reader.info()
-    tabdata = reader.read()
-    out = datautil.tabular.TabularData()
+def extract(fp=cachepath):
+    rows, metadata = xls.parse(open(fp))
+    # convert from iterator to list and rows of dictionaries to rows of lists
+    rows = [ [row[f['id']] for f in metadata['fields']] for row in rows ]
 
     # headings spread across rows 2-8
-    out.header = [
+    header = [
         'Date',
         'SP500',
         'Dividend',
@@ -35,8 +32,8 @@ def extract(fp):
         'P/E10'
         ]
 
-    # first 8 rows are headers, last 2 rows are footnotes so trim them
-    data = tabdata.data[8:-2]
+    # first rows is header, last row is footnotes
+    data = rows[1:-1]
     transposed = zip(*data)
     # fix dates
     # delete "date fraction" column
@@ -46,12 +43,11 @@ def extract(fp):
         row = [ _fixup(val) for val in row ]
         transposed[idx+1] = row
     
-    out.data = zip(*transposed)
-    return out
-
-def save(tabdata, out_filepath):
-    writer = datautil.tabular.CsvWriter()
-    writer.write(tabdata, open(out_filepath, 'w'))
+    data = zip(*transposed)
+    fout = open(out_filepath, 'w')
+    writer = csv.writer(fout, lineterminator='\n')
+    writer.writerow(header)
+    writer.writerows(data)
 
 def _fixup(val):
     if val == 'NA':
@@ -69,8 +65,11 @@ def _fixdates(val):
     out = str(year) + '-' + str(month).zfill(2) + '-01'
     return out
 
+def process():
+    retrieve()
+    extract()
+
 if __name__ == '__main__':
-    # out = extract(cachepath)
-    # save(out, out_filepath)
-    execute()
+    # extract(cachepath)
+    process()
 
