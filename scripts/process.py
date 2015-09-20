@@ -33,8 +33,10 @@ def extract(fp=cachepath):
         ]
 
     # first rows is header, last row is footnotes
-    data = rows[1:-1]
+    data = filter(is_valid_raw, rows)
     transposed = zip(*data)
+    # remove empty column in the end
+    del transposed[11]
     # fix dates
     # delete "date fraction" column
     del transposed[5]
@@ -49,6 +51,9 @@ def extract(fp=cachepath):
     writer.writerow(header)
     writer.writerows(data)
 
+def is_valid_raw(raw):
+    return isinstance(raw[0], float)
+	
 def _fixup(val):
     if val == 'NA':
         return ''
@@ -63,8 +68,8 @@ def _fixdates(val):
     # add 0.0001 to ensure we don't have problems re rounding
     month = int(0.1 + (val - year) * 100)
     out = str(year) + '-' + str(month).zfill(2) + '-01'
-    return out
-
+    return out	
+	
 def process():
     retrieve()
     extract()
