@@ -1,2 +1,4 @@
 dataconverters
 xlrd
+unicodecsv
+messytables
