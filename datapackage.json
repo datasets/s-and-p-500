@@ -64,7 +64,7 @@
           {
             "type": "number",
             "description": "Cyclically Adjusted Price Earnings Ratio P/E10 or CAPE",
-            "id": "P/E10"
+            "id": "PE10"
           }
         ]
       }

@@ -1,4 +1,4 @@
-Date,SP500,Dividend,Earnings,Consumer Price Index,Long Interest Rate,Real Price,Real Dividend,Real Earnings,P/E10
+Date,SP500,Dividend,Earnings,Consumer Price Index,Long Interest Rate,Real Price,Real Dividend,Real Earnings,PE10
 1871-01-01,4.44,0.26,0.4,12.46,5.32,84.46,4.95,7.61,
 1871-02-01,4.5,0.26,0.4,12.84,5.32,83.06,4.8,7.38,
 1871-03-01,4.61,0.26,0.4,13.03,5.33,83.85,4.73,7.28,

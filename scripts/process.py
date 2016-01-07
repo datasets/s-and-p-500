@@ -29,7 +29,7 @@ def extract(fp=cachepath):
         'Real Price',
         'Real Dividend',
         'Real Earnings',
-        'P/E10'
+        'PE10'
         ]
 
     # first rows is header, last row is footnotes
