@@ -33,8 +33,12 @@ def extract(fp=cachepath):
         ]
 
     # first rows is header, last row is footnotes
-    data = rows[1:-1]
-    transposed = zip(*data)
+    rows = rows[1:-1]
+    # usually one last row with footnotes but some months stuff goes wrong and we
+    # have extra rows and then something random e.g. april 2016 there is a
+    # random number 20+ rows down
+    rows = [ r for r in rows if r[0] != '' ]
+    transposed = zip(*rows)
     # fix dates
     # delete "date fraction" column
     del transposed[5]
@@ -54,7 +58,11 @@ def _fixup(val):
         return ''
     elif val == '':
         return ''
-    return round(val, 2)
+    try:
+        return round(val, 2)
+    except:
+        print 'Unable to convert to float: %s' % val
+        return ''
 
 def _fixdates(val):
     # 1879.03 = march, 1879.1 = october
