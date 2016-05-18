@@ -42,6 +42,8 @@ def extract(fp=cachepath):
     # fix dates
     # delete "date fraction" column
     del transposed[5]
+    # seem to have a random extra blank 6 columns
+    del transposed[-7:]
     transposed[0] = [ _fixdates(val) for val in transposed[0] ]
     for idx, row in enumerate(transposed[1:]):
         row = [ _fixup(val) for val in row ]
