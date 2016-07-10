@@ -4,16 +4,13 @@ import urllib
 import os
 
 from dataconverters import xls
+from os.path import join
 
-url = 'http://www.econ.yale.edu/~shiller/data/ie_data.xls'
-cachepath = 'archive/shiller.xls'
+CACHE_PATH = join('..', 'archive', 'shiller.xls')
 
-out_filepath = 'data/data.csv'
+OUT_FILEPATH = join('..', 'data', 'data.csv')
 
-def retrieve():
-    urllib.urlretrieve(url, cachepath)
-
-def extract(fp=cachepath):
+def extract(fp=CACHE_PATH):
     rows, metadata = xls.parse(open(fp))
     # convert from iterator to list and rows of dictionaries to rows of lists
     rows = [ [row[f['id']] for f in metadata['fields']] for row in rows ]
@@ -48,7 +45,7 @@ def extract(fp=cachepath):
         transposed[idx+1] = row
     
     data = zip(*transposed)
-    fout = open(out_filepath, 'w')
+    fout = open(OUT_FILEPATH, 'w')
     writer = csv.writer(fout, lineterminator='\n')
     writer.writerow(header)
     writer.writerows(data)
@@ -76,11 +73,5 @@ def _fixdates(val):
     out = str(year) + '-' + str(month).zfill(2) + '-01'
     return out	
 	
-def process():
-    retrieve()
-    extract()
-
 if __name__ == '__main__':
-    # extract(cachepath)
-    process()
-
+    extract()

@@ -1,4 +1,8 @@
 dataconverters
-xlrd
 unicodecsv
 messytables
+xlrd==0.9.3
+jinja2
+beautifulsoup4
+datapackage
+goodtables
