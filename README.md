@@ -30,8 +30,11 @@ Install requirements in form of datautil library:
 
     pip install -r scripts/requirements.txt
 
+NB : under debian-based distributions you might need to be able to compile and install the messytables dependencies : ``sudo apt-get install libxml2-dev libxslt-dev python-dev lib32z1-dev``
+	
 Run:
 
+    mkdir archive
     python scripts/data.py
 
 ## License
