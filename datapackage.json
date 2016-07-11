@@ -25,46 +25,46 @@
         "fields": [
           {
             "type": "date",
-            "id": "Date"
+            "name": "Date"
           },
           {
             "type": "number",
             "description": "Level ('price') of the S&P 500 index",
-            "id": "SP500"
+            "name": "SP500"
           },
           {
             "type": "number",
-            "id": "Dividend"
+            "name": "Dividend"
           },
           {
             "type": "number",
-            "id": "Earnings"
+            "name": "Earnings"
           },
           {
             "type": "number",
-            "id": "Consumer Price Index"
+            "name": "Consumer Price Index"
           },
           {
             "type": "number",
             "description": "10 year interest rate (gov bonds)",
-            "id": "Long Interest Rate"
+            "name": "Long Interest Rate"
           },
           {
             "type": "number",
-            "id": "Real Price"
+            "name": "Real Price"
           },
           {
             "type": "number",
-            "id": "Real Dividend"
+            "name": "Real Dividend"
           },
           {
             "type": "number",
-            "id": "Real Earnings"
+            "name": "Real Earnings"
           },
           {
             "type": "number",
             "description": "Cyclically Adjusted Price Earnings Ratio P/E10 or CAPE",
-            "id": "PE10"
+            "name": "PE10"
           }
         ]
       }
