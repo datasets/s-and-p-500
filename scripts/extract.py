@@ -32,13 +32,11 @@ def extract(fp=CACHE_PATH):
     # first rows is header, last row is footnotes
     data = filter(is_valid_raw, rows)
     transposed = zip(*data)
-    # remove empty column in the end
-    del transposed[11]
+    # remove empty columns in the end
+    del transposed[11:]
     # fix dates
     # delete "date fraction" column
     del transposed[5]
-    # seem to have a random extra blank 6 columns
-    del transposed[-6:]
     transposed[0] = [ _fixdates(val) for val in transposed[0] ]
     for idx, row in enumerate(transposed[1:]):
         row = [ _fixup(val) for val in row ]
