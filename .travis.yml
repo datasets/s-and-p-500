@@ -19,6 +19,8 @@ before_script:
   - git remote add publish git@github.com:$TRAVIS_REPO_SLUG.git
 
 script:
+  # Run from scratch
+  - rm -rf archive/*
   - cd scripts
   - make valid.txt
 
