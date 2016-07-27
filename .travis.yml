@@ -3,8 +3,9 @@ python:
   - 2.7
 
 install:
-  - pip install --upgrade setuptools
-  - pip install --upgrade -r scripts/requirements.txt
+  - pip install --user --upgrade pip
+  - pip install --user --upgrade setuptools
+  - pip install --user --upgrade -r scripts/requirements.txt
 # Avoid warnings from git :
   - git config --global push.default simple
   - git config --global user.email "datasets-update-bot@lexman.org"
