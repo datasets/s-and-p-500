@@ -32,7 +32,7 @@ class TestData(unittest.TestCase):
             row_limit=ROW_LIMIT,
             report_limit=REPORT_LIMIT)
 
-        data = dp.metadata['resources'][0]['path']
+        data = dp.descriptor['resources'][0]['path']
         valid, report, data = processor.run(data)
 
         output_format = 'txt'
@@ -45,8 +45,8 @@ class TestData(unittest.TestCase):
     # check the data against the schema
     def test_schema(self):
         data_format = 'csv'
-        data = dp.metadata['resources'][0]['path']
-        schema = dp.metadata['resources'][0]['schema']
+        data = dp.descriptor['resources'][0]['path']
+        schema = dp.descriptor['resources'][0]['schema']
 
         processor = processors.SchemaProcessor(schema=schema,
                                                format=data_format,
