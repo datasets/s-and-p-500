@@ -2,7 +2,6 @@ These scripts run with [travis-ci](https://travis-ci.org/datasets/s-and-p-500) e
 
 They have been tested under Debian Jessy.
 
-
 # Run the scripts yourself
 
 ## Install the dependencies
