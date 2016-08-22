@@ -24,15 +24,6 @@ slightly reformatted):
 >
 > For the Plots, I have multiplied the inflation-corrected series by a constant so that their value in january 2000 equals their nominal value, i.e., so that all prices are effectively in January 2000 dollars.
 
-### Preparation
-
-Install requirements in form of datautil library:
-
-    pip install -r scripts/requirements.txt
-
-Run:
-
-    python scripts/data.py
 
 ## License
 
