@@ -1,23 +1,35 @@
 {
-  "name": "s-and-p-500", 
-  "title": "Standard and Poor's (S&P) 500 Index Data including Dividend, Earnings and P/E Ratio", 
+  "name": "s-and-p-500",
+  "title": "Standard and Poor's (S&P) 500 Index Data including Dividend, Earnings and P/E Ratio",
   "licenses": [
     {
       "id": "odc-pddl",
-      "name": "Public Domain Dedication and License",
+      "name": "public_domain_dedication_and_license",
       "version": "1.0",
       "url": "http://opendatacommons.org/licenses/pddl/1.0/"
     }
   ],
-  "sources": [{
-    "name": "Robert Shiller",
-    "web": "http://www.econ.yale.edu/~shiller/data.htm"
-  }],
-  "maintainers": [{
-    "name": "Rufus Pollock", 
-    "email": "rufus.pollock@okfn.org"
-  }],
-  "keywords": ["Indicator", "Economics", "Prices", "Stocks", "Stock Market", "US"], 
+  "sources": [
+    {
+      "name": "Robert Shiller",
+      "web": "http://www.econ.yale.edu/~shiller/data.htm",
+      "title": "Robert Shiller"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "Rufus Pollock",
+      "email": "rufus.pollock@okfn.org"
+    }
+  ],
+  "keywords": [
+    "Indicator",
+    "Economics",
+    "Prices",
+    "Stocks",
+    "Stock Market",
+    "US"
+  ],
   "resources": [
     {
       "path": "data/data.csv",
@@ -25,7 +37,8 @@
         "fields": [
           {
             "type": "date",
-            "name": "Date"
+            "name": "Date",
+            "format": "any"
           },
           {
             "type": "number",
@@ -67,17 +80,21 @@
             "name": "PE10"
           }
         ]
-      }
+      },
+      "name": "data"
     }
   ],
   "views": [
     {
-      "id": "graph",
-      "type": "Graph",
-      "state": {
-        "graphType": "lines",
+      "name": "graph",
+      "title": "Level ('price') of the S&P 500 index",
+      "specType": "simple",
+      "spec": {
+        "type": "line",
         "group": "Date",
-        "series": [ "SP500" ]
+        "series": [
+          "SP500"
+        ]
       }
     }
   ]
