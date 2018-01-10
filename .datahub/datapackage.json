@@ -37,7 +37,7 @@
         "fields": [
           {
             "type": "yearmonth",
-            "name": "Date",
+            "name": "Date"
           },
           {
             "type": "number",
