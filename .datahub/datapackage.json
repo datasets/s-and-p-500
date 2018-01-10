@@ -36,7 +36,7 @@
       "schema": {
         "fields": [
           {
-            "type": "yearmonth",
+            "type": "number",
             "name": "Date"
           },
           {
@@ -54,7 +54,7 @@
           },
           {
             "type": "number",
-            "name": "Consumery"
+            "name": "Consumer"
           },
           {
             "type": "number",
@@ -78,7 +78,7 @@
             "name": "Real Earnings"
           },
           {
-            "type": "number",
+            "type": "any",
             "description": "Cyclically Adjusted Price Earnings Ratio P/E10 or CAPE",
             "name": "PE10"
           }
