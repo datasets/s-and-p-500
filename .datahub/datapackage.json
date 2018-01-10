@@ -36,9 +36,8 @@
       "schema": {
         "fields": [
           {
-            "type": "date",
+            "type": "yearmonth",
             "name": "Date",
-            "format": "any"
           },
           {
             "type": "number",
@@ -55,7 +54,11 @@
           },
           {
             "type": "number",
-            "name": "Consumer Price Index"
+            "name": "Consumery"
+          },
+          {
+            "type": "number",
+            "name": "Price Index"
           },
           {
             "type": "number",
