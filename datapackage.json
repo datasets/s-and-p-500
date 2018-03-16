@@ -3,23 +3,23 @@
   "title": "Standard and Poor's (S&P) 500 Index Data including Dividend, Earnings and P/E Ratio",
   "licenses": [
     {
-      "id": "odc-pddl",
-      "name": "public_domain_dedication_and_license",
-      "version": "1.0",
-      "url": "http://opendatacommons.org/licenses/pddl/1.0/"
+      "name": "ODC-PDDL-1.0",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License v1.0"
     }
   ],
   "sources": [
     {
       "name": "Robert Shiller",
-      "web": "http://www.econ.yale.edu/~shiller/data.htm",
+      "path": "http://www.econ.yale.edu/~shiller/data.htm",
       "title": "Robert Shiller"
     }
   ],
-  "maintainers": [
+  "contributors": [
     {
       "name": "Rufus Pollock",
-      "email": "rufus.pollock@okfn.org"
+      "email": "rufus.pollock@okfn.org",
+      "role": "maintainer"
     }
   ],
   "keywords": [
