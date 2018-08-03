@@ -84,6 +84,32 @@
       "name": "data"
     }
   ],
+  "related": [
+    {
+      "title": "S&P 500 Companies",
+      "path": "/core/s-and-p-500-companies",
+      "publisher": "core",
+      "formats": ["CSV", "JSON"]
+    },
+    {
+      "title": "S&P 500 Companies with Financial Information",
+      "path": "/core/s-and-p-500-companies-financials",
+      "publisher": "core",
+      "formats": ["CSV", "JSON"]
+    },
+    {
+      "title": "VIX - CBOE Volatility Index",
+      "path": "/core/finance-vix",
+      "publisher": "core",
+      "formats": ["CSV", "JSON"]
+    },
+    {
+      "title": "NYSE and Other Listings",
+      "path": "/core/nyse-other-listings",
+      "publisher": "core",
+      "formats": ["CSV", "JSON"]
+    }
+  ],
   "views": [
     {
       "name": "graph",
