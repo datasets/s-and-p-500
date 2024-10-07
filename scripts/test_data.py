@@ -1,17 +1,9 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import os
-import json
 import unittest
-
-from goodtables import pipeline as _pipeline
-from goodtables import processors
+from goodtables import validate
 import datapackage
-from os.path import join
 
+# Constants
 REPORT_LIMIT = 1000
 ROW_LIMIT = 100000
 DATAPACKAGE_PATH = '..'
@@ -19,47 +11,47 @@ DATAPACKAGE_PATH = '..'
 
 class TestData(unittest.TestCase):
 
-    def check_datapackage_json(self):
+    def setUp(self):
+        """Set up datapackage for testing."""
         try:
-            dp.validate()
+            self.dp = datapackage.DataPackage('datapackage.json')
         except datapackage.exceptions.ValidationError as e:
-            # Handle the ValidationError
-            pass
+            self.fail(f"Datapackage validation failed: {e}")
 
     def test_structure(self):
+        """Test the structure of the data."""
         data_format = 'csv'
-        processor = processors.StructureProcessor(format=data_format, fail_fast=False,
-            row_limit=ROW_LIMIT,
-            report_limit=REPORT_LIMIT)
 
-        data = dp.descriptor['resources'][0]['path']
-        valid, report, data = processor.run(data)
+        # Validate the structure
+        data_path = self.dp.descriptor['resources'][0]['path']
+        report = validate(data_path, structure=True, row_limit=ROW_LIMIT, report_limit=REPORT_LIMIT)
 
-        output_format = 'txt'
-        exclude = ['result_context', 'processor', 'row_name', 'result_category',
-                                   'column_index', 'column_name', 'result_level']
-        out = report.generate(output_format, exclude=exclude)
+        # Extract validation result
+        valid = report['valid']
 
-        self.assertTrue(valid, out)
+        # Exclude unnecessary fields
+        exclude_fields = ['result_context', 'processor', 'row_name', 'result_category', 'column_index', 'column_name', 'result_level']
 
-    # check the data against the schema
+        # Generate output and assert
+        self.assertTrue(valid, msg="Structure validation failed.")
+
     def test_schema(self):
+        """Test the schema of the data."""
         data_format = 'csv'
-        data = dp.descriptor['resources'][0]['path']
-        schema = dp.descriptor['resources'][0]['schema']
+        data_path = self.dp.descriptor['resources'][0]['path']
+        schema = self.dp.descriptor['resources'][0]['schema']
 
-        processor = processors.SchemaProcessor(schema=schema,
-                                               format=data_format,
-                                               row_limit=ROW_LIMIT,
-                                               report_limit=REPORT_LIMIT)
-        valid, report, data = processor.run(data)
+        # Validate the schema
+        report = validate(data_path, schema=schema, row_limit=ROW_LIMIT, report_limit=REPORT_LIMIT)
 
-        output_format = 'txt'
-        exclude = ['result_context', 'processor', 'row_name', 'result_category',
-                                   'column_name', 'result_id', 'result_level']
-        out = report.generate(output_format, exclude=exclude)
+        # Extract validation result
+        valid = report['valid']
 
-        self.assertTrue(valid, out)
+        # Exclude unnecessary fields
+        exclude_fields = ['result_context', 'processor', 'row_name', 'result_category', 'column_name', 'result_id', 'result_level']
+
+        # Generate output and assert
+        self.assertTrue(valid, msg="Schema validation failed.")
 
 
 if __name__ == '__main__':
@@ -67,7 +59,7 @@ if __name__ == '__main__':
     os.chdir(DATAPACKAGE_PATH)
     try:
         dp = datapackage.DataPackage('datapackage.json')
-        unittest.main()
-    except:
+        unittest.TextTestRunner(verbosity=2).run(unittest.TestLoader().loadTestsFromTestCase(TestData))
+    except Exception as e:
         os.chdir(former_path)
-        raise
+        raise e
