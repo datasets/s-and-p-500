@@ -1,6 +1,4 @@
-These scripts run with [travis-ci](https://travis-ci.org/datasets/s-and-p-500) every times someone commit to the directory.
-
-They have been tested under Debian Jessy.
+These scripts run with [github-actions](https://github.com/features/actions)
 
 # Run the scripts yourself
 
