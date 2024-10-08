@@ -2,3 +2,5 @@
 .*.swp
 sandbox/
 cache/
+venv
+.DS_Store
