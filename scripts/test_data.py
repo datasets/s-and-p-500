@@ -6,7 +6,6 @@ import datapackage
 # Constants
 REPORT_LIMIT = 1000
 ROW_LIMIT = 100000
-DATAPACKAGE_PATH = '..'
 
 
 class TestData(unittest.TestCase):
@@ -56,7 +55,6 @@ class TestData(unittest.TestCase):
 
 if __name__ == '__main__':
     former_path = os.getcwd()
-    os.chdir(DATAPACKAGE_PATH)
     try:
         dp = datapackage.DataPackage('datapackage.json')
         unittest.TextTestRunner(verbosity=2).run(unittest.TestLoader().loadTestsFromTestCase(TestData))

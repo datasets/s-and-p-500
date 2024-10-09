@@ -9,11 +9,11 @@ all: valid.txt
 ../data:
 	mkdir ../data    
     
-../data/data.csv: ../data ../archive/shiller.xls process.py
-	python process.py
+../data/data.csv: ../data ../archive/shiller.xls scripts/process.py
+	python scripts/process.py
 
-valid.txt: ../data/data.csv ../datapackage.json test_data.py
-	python test_data.py
+valid.txt: ../data/data.csv datapackage.json scripts/test_data.py
+	python scripts/test_data.py
 	echo "Datapackage is valid" > valid.txt
 
 .PHONY: all
