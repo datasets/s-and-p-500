@@ -54,10 +54,8 @@ class TestData(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    former_path = os.getcwd()
     try:
         dp = datapackage.DataPackage('datapackage.json')
         unittest.TextTestRunner(verbosity=2).run(unittest.TestLoader().loadTestsFromTestCase(TestData))
     except Exception as e:
-        os.chdir(former_path)
         raise e

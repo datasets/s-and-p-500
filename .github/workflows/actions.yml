@@ -45,11 +45,6 @@ jobs:
           source venv/bin/activate  
           make   
 
-    - name: Run table generation script
-      run: |
-        source venv/bin/activate
-        python scripts/table_generate.py
-
     - name: Remove files
       run: |
             rm -rf archive/*
