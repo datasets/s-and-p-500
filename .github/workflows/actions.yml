@@ -45,10 +45,6 @@ jobs:
           source venv/bin/activate  
           make   
 
-    - name: Remove files
-      run: |
-            rm -rf archive/*
-
     - name: Push and Commit      
       env:
         CI_COMMIT_NAME: "Automated commit"
@@ -58,7 +54,7 @@ jobs:
         git config --global user.email "${{env.CI_COMMIT_EMAIL}}"
         git config --global user.name "${{env.CI_COMMIT_NAME}}"
         git diff --quiet && echo "No changes to commit" || (
-          git add data/ && 
+          git add data/ valid.txt && 
           git commit -m "${{env.CI_COMMIT_MESSAGE}}" &&
           git push origin main  # Specify the branch
         )
