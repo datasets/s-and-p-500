@@ -125,6 +125,7 @@
   "views": [
     {
       "name": "graph",
+      "resourceName": "data",
       "title": "Level ('price') of the S&P 500 index",
       "specType": "simple",
       "spec": {
