@@ -124,17 +124,83 @@
   ],
   "views": [
     {
+      "name": "real-vs-nominal",
+      "title": "S&P 500: Real vs Nominal Price (1871–present)",
+      "description": "Nominal S&P 500 index vs inflation-adjusted (real) price in January 2000 dollars. On a log scale, the long-run real return is visible as a steady upward trend, while the nominal line accelerates sharply post-1980. Major drawdowns — 1929, 1973, 2000, 2008 — appear as dips in both series.",
+      "resources": ["data"],
+      "specType": "plot",
+      "spec": {
+        "dateFields": ["Date"],
+        "filter": { "field": "Real Price", "gte": 1 },
+        "height": 420,
+        "marginLeft": 70,
+        "x": { "label": null },
+        "y": { "label": "Index Level (log scale)", "type": "log", "tickFormat": ",.0f", "grid": true },
+        "color": { "legend": true },
+        "marks": [
+          {
+            "type": "line",
+            "x": "Date", "y": "SP500", "stroke": "#1d4ed8",
+            "strokeWidth": 1.5, "tip": true
+          },
+          {
+            "type": "line",
+            "x": "Date", "y": "Real Price", "stroke": "#9ca3af",
+            "strokeWidth": 1.5, "tip": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "cape-ratio",
+      "title": "Shiller CAPE Ratio (PE10) — S&P 500 Valuation",
+      "description": "The cyclically adjusted price-to-earnings ratio (CAPE or PE10) smooths out earnings cycles by using 10-year average real earnings. Readings above 25 have historically preceded major corrections: 1929 (peaked ~33), 2000 dot-com bubble (peaked ~44), 2022 (~38). The long-run average is ~17.",
+      "resources": ["data"],
+      "specType": "plot",
+      "spec": {
+        "dateFields": ["Date"],
+        "filter": { "field": "PE10", "gte": 1 },
+        "height": 380,
+        "marginLeft": 55,
+        "x": { "label": null },
+        "y": { "label": "CAPE Ratio", "grid": true },
+        "marks": [
+          {
+            "type": "ruleY",
+            "staticData": [{ "y": 25 }],
+            "y": "y", "stroke": "#f97316", "strokeDasharray": "4,4", "tip": false
+          },
+          {
+            "type": "ruleY",
+            "staticData": [{ "y": 17 }],
+            "y": "y", "stroke": "#9ca3af", "strokeDasharray": "4,4", "tip": false
+          },
+          {
+            "type": "line",
+            "x": "Date", "y": "PE10",
+            "stroke": "#374151", "strokeWidth": 1.5, "tip": true
+          },
+          {
+            "type": "text",
+            "staticData": [{ "x": "1920-01-01", "y": 26.5, "label": "Overvalued (>25)" }],
+            "x": "x", "y": "y", "text": "label",
+            "fill": "#f97316", "fontSize": 11, "textAnchor": "start"
+          },
+          {
+            "type": "text",
+            "staticData": [{ "x": "1920-01-01", "y": 18.5, "label": "Historical avg (~17)" }],
+            "x": "x", "y": "y", "text": "label",
+            "fill": "#9ca3af", "fontSize": 11, "textAnchor": "start"
+          }
+        ]
+      }
+    },
+    {
       "name": "graph",
       "resourceName": "data",
       "title": "Level ('price') of the S&P 500 index",
       "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "Date",
-        "series": [
-          "SP500"
-        ]
-      }
+      "spec": { "type": "line", "group": "Date", "series": ["SP500"] }
     }
   ],
   "collection": "stock-market-data"
