@@ -135,8 +135,7 @@
         "height": 420,
         "marginLeft": 70,
         "x": { "label": null },
-        "y": { "label": "Index Level (log scale)", "type": "log", "tickFormat": ",.0f", "grid": true },
-        "color": { "legend": true },
+        "y": { "label": "Index Level — log scale (data spans 3 orders of magnitude)", "type": "log", "tickFormat": ",.0f", "grid": true },
         "marks": [
           {
             "type": "line",
@@ -145,8 +144,20 @@
           },
           {
             "type": "line",
-            "x": "Date", "y": "Real Price", "stroke": "#9ca3af",
+            "x": "Date", "y": "Real Price", "stroke": "#dc2626",
             "strokeWidth": 1.5, "tip": true
+          },
+          {
+            "type": "text",
+            "staticData": [{ "x": "1960-01-01", "y": 52, "label": "Nominal" }],
+            "x": "x", "y": "y", "text": "label",
+            "fill": "#1d4ed8", "fontSize": 12, "fontWeight": "600", "textAnchor": "start"
+          },
+          {
+            "type": "text",
+            "staticData": [{ "x": "1960-01-01", "y": 420, "label": "Real (inflation-adj.)" }],
+            "x": "x", "y": "y", "text": "label",
+            "fill": "#dc2626", "fontSize": 12, "fontWeight": "600", "textAnchor": "start"
           }
         ]
       }
