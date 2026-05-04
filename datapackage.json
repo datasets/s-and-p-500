@@ -4,7 +4,7 @@
   "licenses": [
     {
       "name": "ODC-PDDL-1.0",
-      "path": "http://opendatacommons.org/licenses/pddl/",
+      "path": "https://opendatacommons.org/licenses/pddl/",
       "title": "Open Data Commons Public Domain Dedication and License v1.0"
     }
   ],
@@ -13,6 +13,11 @@
       "name": "Robert Shiller",
       "path": "http://www.econ.yale.edu/~shiller/data.htm",
       "title": "Robert Shiller"
+    },
+    {
+      "name": "Federal Reserve Bank of St. Louis (FRED)",
+      "path": "https://fred.stlouisfed.org/series/SP500",
+      "title": "S&P 500 Index (FRED)"
     }
   ],
   "contributors": [
@@ -47,14 +52,17 @@
           },
           {
             "type": "number",
+            "description": "Dividend per share (monthly, annualised)",
             "name": "Dividend"
           },
           {
             "type": "number",
+            "description": "Earnings per share (monthly, annualised)",
             "name": "Earnings"
           },
           {
             "type": "number",
+            "description": "Consumer Price Index (CPI-U); pre-1913 spliced from Warren-Pearson price index",
             "name": "Consumer Price Index"
           },
           {
@@ -64,14 +72,17 @@
           },
           {
             "type": "number",
+            "description": "Inflation-adjusted S&P 500 price in January 2000 dollars",
             "name": "Real Price"
           },
           {
             "type": "number",
+            "description": "Inflation-adjusted dividend per share in January 2000 dollars",
             "name": "Real Dividend"
           },
           {
             "type": "number",
+            "description": "Inflation-adjusted earnings per share in January 2000 dollars",
             "name": "Real Earnings"
           },
           {
