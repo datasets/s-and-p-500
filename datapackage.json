@@ -81,7 +81,8 @@
           }
         ]
       },
-      "name": "data"
+      "name": "data",
+      "description": "Monthly S&P 500 index data from 1871 to present, including price, dividend, earnings, CPI, interest rate, inflation-adjusted values, and the Shiller CAPE (PE10) ratio."
     }
   ],
   "related": [
