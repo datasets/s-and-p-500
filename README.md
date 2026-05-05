@@ -16,6 +16,10 @@ FRED-only rows contain only the `SP500` price; the `Dividend`, `Earnings`,
 `Consumer Price Index`, `Long Interest Rate`, `Real Price`, `Real Dividend`,
 `Real Earnings`, and `PE10` fields are `0` for those rows.
 
+Additionally, `PE10` (the Shiller CAPE ratio) is `0` for the first ~10 years of the
+dataset (1871-01 through 1880-12) because computing it requires 10 years of
+trailing real earnings history, which is not yet available at the start of the series.
+
 [shiller]: http://www.econ.yale.edu/~shiller/data.htm
 [fred]: https://fred.stlouisfed.org/series/SP500
 
