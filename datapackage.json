@@ -1,6 +1,7 @@
 {
   "name": "s-and-p-500",
   "title": "Standard and Poor's (S&P) 500 Index Data including Dividend, Earnings and P/E Ratio",
+  "description": "Monthly S&P 500 index data from January 1871 to the present, sourced from Robert Shiller's dataset and extended with recent price data from the Federal Reserve Bank of St. Louis (FRED). Includes nominal and inflation-adjusted price, dividend, earnings, CPI, 10-year interest rate, and the Shiller CAPE (PE10) ratio.",
   "licenses": [
     {
       "name": "ODC-PDDL-1.0",
@@ -43,7 +44,8 @@
           {
             "type": "date",
             "name": "Date",
-            "format": "any"
+            "format": "default",
+            "description": "First day of each month in ISO 8601 format (YYYY-MM-DD). All dates are set to the 1st of the month."
           },
           {
             "type": "number",
@@ -87,13 +89,13 @@
           },
           {
             "type": "number",
-            "description": "Cyclically Adjusted Price Earnings Ratio P/E10 or CAPE",
+            "description": "Cyclically Adjusted Price Earnings Ratio P/E10 or CAPE. Values are 0.0 for 1871-01 through 1880-12 (the first 120 months) because computing PE10 requires 10 years of trailing real earnings history. Values are also 0.0 for FRED-only extension rows beyond the Shiller dataset.",
             "name": "PE10"
           }
         ]
       },
       "name": "data",
-      "description": "Monthly S&P 500 index data from 1871 to present, including price, dividend, earnings, CPI, interest rate, inflation-adjusted values, and the Shiller CAPE (PE10) ratio."
+      "description": "Monthly S&P 500 index data from 1871 to present, including price, dividend, earnings, CPI, interest rate, inflation-adjusted values, and the Shiller CAPE (PE10) ratio. Recent months beyond the Shiller dataset are extended with FRED price data; for those rows only SP500 is populated and all other fields are 0."
     }
   ],
   "related": [

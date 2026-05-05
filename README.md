@@ -9,12 +9,17 @@ in the US (top 500 by market cap).
 
 The data provided here is a tidied and CSV'd version of that collected and
 prepared by the Economist Robert Shiller and made [available on his
-website][shiller]. Recent months (beyond what is covered by the Shiller
-dataset) are extended automatically with S&P 500 price data from the
-[Federal Reserve Bank of St. Louis (FRED)][fred]. Note that these
-FRED-only rows contain only the `SP500` price; the `Dividend`, `Earnings`,
-`Consumer Price Index`, `Long Interest Rate`, `Real Price`, `Real Dividend`,
-`Real Earnings`, and `PE10` fields are `0` for those rows.
+website][shiller]. The Shiller dataset currently extends through **2023-06**.
+Months after that are extended automatically with S&P 500 price data from the
+[Federal Reserve Bank of St. Louis (FRED)][fred]. Because FRED only publishes
+the index price, those rows contain only the `SP500` value; `Dividend`,
+`Earnings`, `Consumer Price Index`, `Long Interest Rate`, `Real Price`,
+`Real Dividend`, `Real Earnings`, and `PE10` are `0` for all rows from
+2023-07 onward.
+
+Additionally, `PE10` (the Shiller CAPE ratio) is `0` for the first ~10 years of the
+dataset (1871-01 through 1880-12) because computing it requires 10 years of
+trailing real earnings history, which is not yet available at the start of the series.
 
 [shiller]: http://www.econ.yale.edu/~shiller/data.htm
 [fred]: https://fred.stlouisfed.org/series/SP500
