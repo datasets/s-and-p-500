@@ -16,6 +16,12 @@ FRED-only rows contain only the `SP500` price; the `Dividend`, `Earnings`,
 `Consumer Price Index`, `Long Interest Rate`, `Real Price`, `Real Dividend`,
 `Real Earnings`, and `PE10` fields are `0` for those rows.
 
+All dates are formatted as `YYYY-MM-01` (first day of the month).
+
+Note also that the `PE10` (CAPE) field is `0` for roughly the first 10 years
+of data (through ~1880), because the cyclically adjusted P/E ratio requires
+10 years of real earnings history to compute.
+
 [shiller]: http://www.econ.yale.edu/~shiller/data.htm
 [fred]: https://fred.stlouisfed.org/series/SP500
 

@@ -1,6 +1,7 @@
 {
   "name": "s-and-p-500",
   "title": "Standard and Poor's (S&P) 500 Index Data including Dividend, Earnings and P/E Ratio",
+  "description": "Monthly S&P 500 index data from January 1871 to present. Includes the nominal price level, dividend per share, earnings per share, Consumer Price Index, 10-year government bond yield, inflation-adjusted price/dividend/earnings (in January 2000 dollars), and the Shiller CAPE (PE10) ratio. Historical data is sourced from Robert Shiller's dataset; recent months beyond Shiller's coverage are extended automatically using daily S&P 500 price data from FRED, averaged to monthly figures. FRED-extension rows contain only the SP500 field; all other fields are 0 for those rows.",
   "licenses": [
     {
       "name": "ODC-PDDL-1.0",
@@ -43,7 +44,8 @@
           {
             "type": "date",
             "name": "Date",
-            "format": "any"
+            "format": "any",
+            "description": "First day of the month in YYYY-MM-DD format. All observations are monthly."
           },
           {
             "type": "number",
