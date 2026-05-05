@@ -1,7 +1,7 @@
 <a className="gh-badge" href="https://datahub.io/core/s-and-p-500"><img src="https://badgen.net/badge/icon/View%20on%20datahub.io/orange?icon=https://datahub.io/datahub-cube-badge-icon.svg&label&scale=1.25" alt="badge" /></a>
 
 S&P 500 index data including level, dividend, earnings and P/E ratio on a
-monthly basis since 1870. The S&P 500 (Standard and Poor's 500) is a
+monthly basis since 1871. The S&P 500 (Standard and Poor's 500) is a
 free-float, capitalization-weighted index of the top 500 publicly listed stocks
 in the US (top 500 by market cap).
 
@@ -9,9 +9,15 @@ in the US (top 500 by market cap).
 
 The data provided here is a tidied and CSV'd version of that collected and
 prepared by the Economist Robert Shiller and made [available on his
-website][shiller].
+website][shiller]. Recent months (beyond what is covered by the Shiller
+dataset) are extended automatically with S&P 500 price data from the
+[Federal Reserve Bank of St. Louis (FRED)][fred]. Note that these
+FRED-only rows contain only the `SP500` price; the `Dividend`, `Earnings`,
+`Consumer Price Index`, `Long Interest Rate`, `Real Price`, `Real Dividend`,
+`Real Earnings`, and `PE10` fields are `0` for those rows.
 
 [shiller]: http://www.econ.yale.edu/~shiller/data.htm
+[fred]: https://fred.stlouisfed.org/series/SP500
 
 ### Source Data Construction
 
